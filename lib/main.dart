@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'question.dart';
+import 'package:learn/quiz.dart';
+import 'package:learn/result.dart';
+import 'quiz.dart';
+import 'result.dart';
 
 void main() {
   runApp(const Learn());
@@ -16,47 +19,56 @@ class Learn extends StatefulWidget {
 
 class _LearnState extends State<Learn> {
   int _questionIndex = 0;
-  final questions = <String>[
-    'What\'s your favorite color?',
-    'What\'s your favorite animal?',
+  int _totalScore = 0;
+  final _questions = [
+    {
+      "questionText": 'What\'s your favorite color?',
+      "answers": [
+        {'text': 'Red', 'score': 0},
+        {'text': 'Blue', 'score': 0},
+        {'text': 'Green', 'score': 0},
+        {'text': 'Rose', 'score': 10},
+      ],
+    },
+    {
+      "questionText": 'What\'s your favorite food?',
+      "answers": [
+        {'text': 'Fired rice', 'score': 0},
+        {'text': 'Pickle', 'score': 0},
+        {'text': 'Spring roll', 'score': 10},
+        {'text': 'Pho', 'score': 0},
+      ],
+    }
   ];
 
-  void answerQuestion() {
-    if (_questionIndex < questions.length - 1) {
-      setState(() {
-        _questionIndex += 1;
-      });
-    }
+  void _answerQuestion(int score) {
+    // final currentQuestion = _questions[_questionIndex];
+    // final correctAnswer = currentQuestion['correctAnswer'] as String;
+    // final isCorrect = answer == correctAnswer;
+    // final hasMore = _questionIndex < _questions.length;
+    setState(() {
+      _totalScore += score;
+      _questionIndex += 1;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    // final question = _questions[_questionIndex];
+    // final answers = question['answers']! as List<>;
+    final hasMore = _questionIndex < _questions.length;
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text('My First App'),
         ),
-        body: Column(
-          children: [
-            QuestionWidget(questions[_questionIndex]),
-            ElevatedButton(
-              onPressed: answerQuestion,
-              child: Text('Answer 01'),
-            ),
-            ElevatedButton(
-              onPressed: answerQuestion,
-              child: Text('Answer 02'),
-            ),
-            ElevatedButton(
-              onPressed: () => {
-                setState(() {
-                  _questionIndex = 0;
-                })
-              },
-              child: Text('Reset question index'),
-            )
-          ],
-        ),
+        body: hasMore
+            ? QuizWidget(
+                questions: _questions,
+                questionIndex: _questionIndex,
+                answerQuestion: _answerQuestion,
+              )
+            : ResultWidget(score: _totalScore),
       ),
     );
   }

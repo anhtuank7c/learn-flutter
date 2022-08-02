@@ -8,7 +8,7 @@ class QuestionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.only(left: 14, right: 14, top: 5, bottom: 5),
+      margin: const EdgeInsets.all(10),
       child: Text(
         question,
         style: const TextStyle(
