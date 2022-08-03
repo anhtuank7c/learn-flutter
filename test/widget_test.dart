@@ -4,7 +4,7 @@
 // utility in the flutter_test package. For example, you can send tap and scroll
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:learn/main.dart';
 
@@ -13,7 +13,7 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const Learn());
 
-    // Verify that our first question's answer containing Rose
+    // Verify that our first question's answer containing Rose, Red, Blue, Green
     expect(find.text('Rose'), findsOneWidget);
     expect(find.text('Red'), findsOneWidget);
     expect(find.text('Blue'), findsOneWidget);
@@ -35,7 +35,16 @@ void main() {
     await tester.tap(find.text('Spring roll'));
     await tester.pump();
 
+    // Verify that we reach the result screen
     expect(find.text('20 points'), findsOneWidget);
     expect(find.text('Pretty likeable'), findsOneWidget);
+
+    // Reset Quiz by click on Reset Button which can find by key
+    const resetBtn = Key('resetBtn');
+    await tester.tap(find.byKey(resetBtn));
+    await tester.pump();
+
+    // Verify that our first question's answer containing Rose
+    expect(find.text('Rose'), findsOneWidget);
   });
 }

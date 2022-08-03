@@ -52,6 +52,13 @@ class _LearnState extends State<Learn> {
     });
   }
 
+  void _resetQuiz() {
+    setState(() {
+      _totalScore = 0;
+      _questionIndex = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // final question = _questions[_questionIndex];
@@ -68,7 +75,7 @@ class _LearnState extends State<Learn> {
                 questionIndex: _questionIndex,
                 answerQuestion: _answerQuestion,
               )
-            : ResultWidget(score: _totalScore),
+            : ResultWidget(score: _totalScore, resetQuiz: _resetQuiz),
       ),
     );
   }

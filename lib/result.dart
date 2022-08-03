@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 
 class ResultWidget extends StatelessWidget {
   final int score;
-  const ResultWidget({required this.score, super.key});
+  final VoidCallback resetQuiz;
+  const ResultWidget({required this.score, required this.resetQuiz, super.key});
 
   String get resultPhrase {
     String text = 'You did it!';
-    if (score <= 10) {
+    if (score > 0 && score <= 10) {
       text = 'You are awesome!';
-    } else if (score <= 20) {
+    } else if (score > 10) {
       text = 'Pretty likeable';
-    } else if (score == 0) {
-      text = 'Oh man. You\'re so bad!';
     }
     return text;
   }
@@ -31,6 +30,19 @@ class ResultWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           Text(resultPhrase),
+          ElevatedButton(
+              key: const Key('resetBtn'),
+              onPressed: resetQuiz,
+              style: ElevatedButton.styleFrom(
+                primary: Colors.orange,
+                onPrimary: Colors.white,
+              ),
+              child: const Text(
+                'Restart Quiz',
+                style: TextStyle(
+                  fontSize: 17,
+                ),
+              ))
         ],
       ),
     );
