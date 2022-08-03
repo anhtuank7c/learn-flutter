@@ -5,26 +5,37 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:learn/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Quiz smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const Learn());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verify that our first question's answer containing Rose
+    expect(find.text('Rose'), findsOneWidget);
+    expect(find.text('Red'), findsOneWidget);
+    expect(find.text('Blue'), findsOneWidget);
+    expect(find.text('Green'), findsOneWidget);
+    expect(find.text('Pickle'), findsNothing);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    // Tap the Rose answer and trigger a frame.
+    await tester.tap(find.text('Rose'));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify that our question index has been increamented
+    expect(find.text('Fired rice'), findsOneWidget);
+    expect(find.text('Pickle'), findsOneWidget);
+    expect(find.text('Spring roll'), findsOneWidget);
+    expect(find.text('Pho'), findsOneWidget);
+    expect(find.text('Rose'), findsNothing);
+
+    // Tap the Spring roll answer and trigger a frame.
+    await tester.tap(find.text('Spring roll'));
+    await tester.pump();
+
+    expect(find.text('20 points'), findsOneWidget);
+    expect(find.text('Pretty likeable'), findsOneWidget);
   });
 }
