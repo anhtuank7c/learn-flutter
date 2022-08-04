@@ -15,3 +15,7 @@ I already done learning Dart from [Dart Language Tour](https://dart.dev/guides/l
 ## Why would I publicize this repo?
 
 I want to push myself to acquire a new skill.
+
+## Day 03
+
+No coding today, just learn about running app on differents platform, emulator, simulator, real devices, debugging tools, Flutter Dev tools, how to profile app an so on.
