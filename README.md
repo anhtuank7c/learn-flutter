@@ -19,3 +19,10 @@ I want to push myself to acquire a new skill.
 ## Day 03
 
 No coding today, just learn about running app on differents platform, emulator, simulator, real devices, debugging tools, Flutter Dev tools, how to profile app an so on.
+
+## Day 04
+
+* Combine Container, Row, Column, Card
+* Model Class
+
+![image info](./imgs/day_04.png)
