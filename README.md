@@ -26,3 +26,10 @@ No coding today, just learn about running app on differents platform, emulator, 
 * Model Class
 
 ![image info](./imgs/day_04.png)
+
+## Day 05
+
+* split widgets, models
+* ListView, TextField, TextEditingController, InputDecoration
+
+![image info](./imgs/day_05.png)
