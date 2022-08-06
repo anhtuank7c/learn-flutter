@@ -33,3 +33,15 @@ No coding today, just learn about running app on differents platform, emulator, 
 * ListView, TextField, TextEditingController, InputDecoration
 
 ![image info](./imgs/day_05.png)
+
+
+## Day 06
+
+* Refactor UI
+* Showing/poping modal
+* ThemeData
+* keyboardType, AppBar actions
+* FloatingActionButton
+
+![image info](./imgs/day_06_1.png)
+![image info](./imgs/day_06_2.png)
