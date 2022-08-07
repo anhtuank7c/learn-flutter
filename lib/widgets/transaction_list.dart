@@ -35,7 +35,8 @@ class TransactionList extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(
                         vertical: 10, horizontal: 15),
                     child: Text(
-                      transaction.amount.toStringAsFixed(2),
+                      NumberFormat('\$##,###.##', 'vi_VN')
+                          .format(transaction.amount),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 17,
