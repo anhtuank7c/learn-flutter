@@ -11,7 +11,7 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 420,
       child: ListView.builder(
         itemBuilder: (ctx, index) {
@@ -35,6 +35,7 @@ class TransactionList extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(
                         vertical: 10, horizontal: 15),
                     child: Text(
+                      key: const Key('amount'),
                       NumberFormat('\$##,###.##', 'vi_VN')
                           .format(transaction.amount),
                       textAlign: TextAlign.center,
@@ -49,6 +50,7 @@ class TransactionList extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
+                        key: const Key('title'),
                         transaction.title,
                         style: const TextStyle(
                           fontSize: 17,

@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Personal Expenses'),
         actions: [
           IconButton(
-            key: const Key('actionsBtn'),
+            key: const Key('addBtn'),
             onPressed: () => startAddNewTransaction(context),
             icon: const Icon(
               Icons.add,
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        key: const Key('fabButton'),
+        key: const Key('fabBtn'),
         onPressed: () => startAddNewTransaction(context),
         child: const Icon(
           Icons.add,
